@@ -10,7 +10,7 @@ var Botkit = require('botkit');
 const Images = require('../src/images');
 const emoji = require('node-emoji');
 
-if (!process.env.SLACKBOT_TOKEN) {
+if (!process.env.SLACK_TOKEN) {
   console.log('Error: Specify token in environment');
   process.exit(1);
 }
@@ -20,7 +20,7 @@ var controller = Botkit.slackbot({
 });
 
 controller.spawn({
-  token: process.env.SLACKBOT_TOKEN
+  token: process.env.SLACK_TOKEN
 }).startRTM();
 
 

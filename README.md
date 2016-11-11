@@ -27,7 +27,7 @@ The source code for the [NYPL Emoji Bot](https://twitter.com/NYPLEmoji). This fo
 ### To start the Slack bot
 
 ```shell
-npm run slack
+npm start
 ```
 
 Then either start a direct message with your bot, or invite it to a channel and say, e.g. "@nyplemojibot :hand:".
