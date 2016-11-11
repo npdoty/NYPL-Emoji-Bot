@@ -8,6 +8,7 @@ require('dotenv').config();
 var Botkit = require('botkit');
 
 const Images = require('../src/images');
+const emoji = require('node-emoji');
 
 if (!process.env.SLACKBOT_TOKEN) {
   console.log('Error: Specify token in environment');
@@ -65,8 +66,15 @@ controller.hears([ 'shutdown', 'goodbye' ], 'direct_message,direct_mention,menti
 
 // listen for any shortcode in the Images list
 controller.hears(new Images().shortcodeRegex(), 'direct_message,direct_mention,mention', function(bot, message) {
-  var e_name = message.match[0].split(':')[1];  
-  var image = new Images().getFromName(e_name);
+  var e_name = message.match[0].split(':')[1];
+  
+  console.log(e_name);
+  console.log(emoji.get(e_name));
+  
+  var image = new Images().getFromName(emoji.get(e_name));
   if (!image) { return; }
   bot.reply(message, image.toString());
+  
+  // TODO: attachments, including the meta tag image?
+  // or, wait for NYPL or Slack to fix the bug in their unfurling/oEmbed code
 });

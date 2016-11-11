@@ -5,6 +5,7 @@ const blacklist = require('../data/blacklist');
 const Image = require('./image');
 const ImageIncomplete = require('./image_incomplete');
 const firstBy = require('thenby');
+const emoji = require('node-emoji');
 
 const VARIATION_SELECTOR_MATCHER = /\uFE0F$/;
 
@@ -38,7 +39,12 @@ class Images {
   }
   
   shortcodeRegex() {
-    let emoji_shortcodes = Object.keys(data);
+    let emoji_keys = getSortedKeys(this.records);
+    
+    var emoji_shortcodes = emoji_keys.map(function(el) {
+      return emoji.which(el);
+    });
+    
     return '/:' + emoji_shortcodes.join(':|:') + ':/';
   }
 }
