@@ -13,7 +13,9 @@
     "dotenv": "^2.0.0",
     "emoji-regex": "^6.0.0",
     "node-emoji": "^1.3.1",
-    "twit": "1.x"
+    "twit": "1.x",
+    "ejs": "2.4.1",
+    "thenby": "^1.2.1"
   },
   "bugs": {
     "url": "https://github.com/lolibrarian/NYPL-Emoji-Bot/issues"
@@ -26,9 +28,10 @@
     "mocha": "^3.0.2"
   },
   "scripts": {
-    "test": "`npm bin`/eslint . && `npm bin`/mocha",
+    "test": "`npm bin`/eslint . && `npm bin`/mocha --recursive",
     "status": "`npm bin`/nf run bin/status",
     "reply": "`npm bin`/nf run bin/reply",
-    "slack": "`npm bin`/nf run bin/slack"
+    "slack": "`npm bin`/nf run bin/slack",
+    "missing": "`npm bin`/nf run bin/missing"
   }
 }
