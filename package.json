@@ -32,6 +32,7 @@
     "status": "`npm bin`/nf run bin/status",
     "reply": "`npm bin`/nf run bin/reply",
     "slack": "`npm bin`/nf run bin/slack",
-    "missing": "`npm bin`/nf run bin/missing"
+    "missing": "`npm bin`/nf run bin/missing",
+    "start": "node script/slack_bot.js"
   }
 }
